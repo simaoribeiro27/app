@@ -1,0 +1,131 @@
+<!doctype html>
+<!--
+	Afonso
+	Diogo 
+-->
+<html ng-app="Viagens">
+
+<head>
+	<title>Viagens</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!-- SPELLS -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<!-- load angular -->
+	<script src="js/controllers/main.js"></script>
+	<!-- load up our controller -->
+	<script src="js/services/viagens.js"></script>
+	<!-- load our todo service -->
+	<script src="js/core.js"></script>
+	<!-- load our main application -->
+</head>
+
+<body ng-controller="mainController">
+	<!-- Header -->
+	<section id="header">
+		<header class="major">
+			<h1>AS<br/>MINHAS<br/>VIAGENS</h1>
+			</p>
+		</header>
+		<div class="container">
+			<ul class="actions">
+				<li><a href="#inicio" class="button special scrolly">Listas</a></li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- Inicio-->
+	<section id="inicio" class="main special">
+		<div class="container">
+			<div class="content">
+				<header class="major">
+					<h2>Lista de viagens</h2>
+				</header>
+				<!-- VIAGENS LIST -->
+				<div id="viagens-list" class="row">
+					<div class="col-sm-4 col-sm-offset-4">
+						<!-- LOOP OVER THE TODOS IN $scope.todos -->
+						<div class="checkbox" ng-repeat="viagen in viagens">
+						<label>
+						<input type="checkbox" ng-click="deleteViagem(viagem._id)"> {{ viagem.text }}
+					  </label>
+						</div>
+						<p class="text-center" ng-show="loading">
+							<span class="fa fa-spinner fa-spin fa-3x"></span>
+						</p>
+					</div>
+					<a href="#two" class="goto-next scrolly">Eliminar</a>
+				</div>
+	</section>
+
+	<!-- Two -->
+	<section id="two" class="main special">
+		<div class="container">
+			<div class="content">
+				<header class="major">
+					<h2>Inserir uma viagem</h2>
+				</header>
+				<p>texto.</p>
+				
+			</div>
+			<a href="#three" class="goto-next scrolly">Eliminar</a>
+		</div>
+	</section>
+
+	<!-- Three -->
+	<section id="three" class="main special">
+		<div class="container">
+			<div class="content">
+				<header class="major">
+					<h2>Eliminar</h2>
+				</header>
+				<p>Texto.</p>
+			</div>
+			<a href="#footer" class="goto-next scrolly">Next</a>
+		</div>
+	</section>
+
+
+	<!-- Footer -->
+	<section id="footer">
+		<div class="container">
+			<header class="major">
+				<h2>Contact</h2>
+			</header>
+			<form method="post" action="#">
+				<div class="row uniform">
+					<div class="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
+					<div class="6u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
+					<div class="12u$"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+					<div class="12u$">
+						<ul class="actions">
+							<li><input type="submit" value="Send Message" class="special" /></li>
+						</ul>
+					</div>
+				</div>
+			</form>
+		</div>
+		<footer>
+			<ul class="icons">
+				<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>Design: </li>
+			</ul>
+		</footer>
+	</section>
+
+	<!-- Scripts -->
+	<script src="/assets/js/jquery.min.js"></script>
+	<script src="c/assets/js/jquery.scrollex.min.js"></script>
+	<script src="/assets/js/jquery.scrolly.min.js"></script>
+	<script src="/assets/js/skel.min.js"></script>
+	<script src="/assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="/public/assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

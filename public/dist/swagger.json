@@ -1,0 +1,562 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Viagens api"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "nome": "viagens",
+      "externalDocs": {
+        "url": "viagens"
+      }
+    },
+    {
+      "nome": "momentos",
+      "externalDocs": {
+        "url": "momentos"
+      }
+    },
+    {
+      "nome": "classificacoes",
+      "externalDocs": {
+        "url": "classificacoes"
+      }
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/viagens": {
+      "post": {
+        "tags": [
+          "viagens"
+        ],
+        "description": "Inserir viagem",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "description": "Coloque seus dados",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/viagens"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+                "$ref": "#/definitions/viagens"            
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "viagens"
+        ],
+        "description": "Ver viagens",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/viagens"
+            }
+          }
+        }
+      }
+    },
+    "/viagens/{id}": {
+      "put": {
+        "tags": [
+          "viagens"
+        ],
+         "description": "Ver viagen id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "description": "_id",
+            "_id": "_id",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "Descricao": "Coloque seus dados",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/viagens",
+              "type": "object"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "viagens"
+        ],
+        "description": "_id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "id": "_id",
+            "in": "query",
+            "description": "_id a filtrar",
+            "required": true
+          }
+        ],
+        "responses": {
+          "schema": {
+            "$ref": "#/definitions/viagens",
+            "type": "object"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "viagens"
+        ],
+        "description": "Remover viagem",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "_id": "_id",
+            "in": "query",
+            "description": "_id  a remover",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/viagens"
+            }
+          }
+        }
+      }
+    },
+    "/momentos": {
+      "post": {
+        "tags": [
+          "momentos"
+        ],
+        "description": "Inserir momento",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "Media",
+            "description": "Adicionar ficheiro ",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "in": "body",
+            "description": "Coloque seus dados",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/momentos"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "Object ",
+              "items": {
+                "$ref": "#/definitions/momentos"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "momentos"
+        ],
+        "description": "Inserir momentos",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": " GET"
+          }
+        }
+      }
+    },
+    "/momentos/{id}": {
+      "put": {
+        "tags": [
+          "momentos"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "description": "id",
+            "id": "id",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "description": "Coloque seus dados",
+            "Descricao_Momento": "Descricao_Momento",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "momentos"
+        ],
+        "description": "Pesquise por ID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "id": "id",
+            "in": "query",
+            "description": "ID a filtrar",
+            "required": true
+          }
+        ],
+        "responses": {
+          "description": "Com sucesso",
+          "schema": {
+            "$ref": "#/definitions/momentos"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "momentos"
+        ],
+        "description": "Dado um ID remove um objecto",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "id": "id",
+            "in": "query",
+            "description": "ID do objeto a eliminar",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/momentos",
+              "description": "DELETE"
+            }
+          }
+        }
+      }
+    },
+    "/classificacoes": {
+      "post": {
+        "tags": [
+          "classificacoes"
+        ],
+        "description": "Inserir um classificacoes",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "description": "Coloque seus dados",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/classificacoes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/classificacoes"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "classificacoes"
+        ],
+        "description": "Inserir classificacoes",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": " GET"
+          }
+        }
+      }
+    },
+    "/classificacoes/{id}": {
+      "put": {
+        "tags": [
+          "classificacoes"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "description": "id",
+            "id": "id",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "description": "Coloque seus dados",
+            "A": "A",
+            "B": "B",
+            "C": "C",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "classificacoes"
+        ],
+        "description": "Pesquise por ID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "id": "id",
+            "in": "query",
+            "description": "ID a filtrar",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/classificacoes"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "classificacoes"
+        ],
+        "description": "Dado um ID remove um objecto",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "id": "id",
+            "in": "query",
+            "description": "ID do objeto a eliminar",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/classificacoes",
+              "description": "DELETE"
+            }
+          }
+        }
+      }
+    }
+  },
+
+    "responses": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }  
+  },
+
+  "securityDefinitions": {
+    "viagens_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "//appviagemfina-api.herokuapp.com.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:viagens": "modificar viagens",
+        "read:viagens": "ler viagens"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "viagens": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "String",
+          "required": "true"
+        },
+        "Pais": {
+          "type": "String",
+          "required": "true"
+        },
+        "Cidade": {
+          "type": "String",
+          "required": "false"
+        },
+        "Localizacao": {
+          "type": "Point",
+          "coordinates": "[-40.7193, 40.7193]"
+        },
+        "Descricao": "String",
+        "Visivel": {
+          "type": "Boolean",
+          "default": "fale"
+        },
+        "Chegada": {
+          "type": "Date",
+          "default": " Date.now()"
+        },
+        "Partida": {
+          "type": "Date"
+        },
+        "idUtilizador": {
+          "type": "String",
+          "required": "true"
+        }
+      }
+    },
+    "momentos": {
+      "type": "object",
+      "properties": {
+        "Localidade": {
+          "type": "string"
+        },
+        "Tempo": {
+          "type": "string"
+        },
+        "Longitude": {
+          "type": "string"
+        },
+        "Latitude": {
+          "type": "string"
+        },
+        "ImagemUrl": {
+          "type": "string"
+        },
+        "Media": {
+          "type": "file"
+        },
+        "Descricao_Momento": {
+          "type": "string"
+        },
+        "Data": {
+          "type": "string"
+        }
+      }
+    },
+    "classificacoes": {
+      "type": "object",
+      "properties": {
+        "A": {
+          "type": "Boolean",
+          "default": "false"
+        },
+        "B": {
+          "type": "Boolean",
+          "default": "false"
+        },
+        "C": {
+          "type": "Boolean",
+          "default": "false"
+        },
+        "Data": {
+          "type": "Data",
+          "default": "Date.now()"
+        },
+        "idViagem": {
+          "type": "String",
+          "required": "true"
+        },
+        "idMomento": {
+          "type": "String",
+          "required": "true"
+        },
+        "idUtilizador": {
+          "type": "String",
+          "required": "true"
+        }
+      }
+    }
+  }
+}
+
+  
